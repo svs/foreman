@@ -1,4 +1,4 @@
-Bluepill.application("app", :foreground => false, :log_file => "/var/log/bluepill.log") do |app|
+Bluepill.application("app", :foreground => false, :log_file => "/var/log/app/bluepill.log") do |app|
 
   app.uid = "app"
   app.gid = "app"
@@ -20,7 +20,7 @@ Bluepill.application("app", :foreground => false, :log_file => "/var/log/bluepil
     process.monitor_children do |children|
       children.stop_command "kill {{PID}}"
     end
-    
+
     process.group = "app-alpha"
   end
 
@@ -39,7 +39,7 @@ Bluepill.application("app", :foreground => false, :log_file => "/var/log/bluepil
     process.monitor_children do |children|
       children.stop_command "kill {{PID}}"
     end
-    
+
     process.group = "app-alpha"
   end
 

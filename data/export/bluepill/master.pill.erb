@@ -1,4 +1,4 @@
-Bluepill.application("<%= app %>", :foreground => false, :log_file => "/var/log/bluepill.log") do |app|
+Bluepill.application("<%= app %>", :foreground => false, :log_file => "<%= log %>/bluepill.log") do |app|
 
   app.uid = "<%= user %>"
   app.gid = "<%= user %>"
