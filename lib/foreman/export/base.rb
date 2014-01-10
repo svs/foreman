@@ -89,7 +89,7 @@ private ######################################################################
   def say(message)
     puts "[foreman export] %s" % message
   end
-  
+
   def clean(filename)
     return unless File.exists?(filename)
     say "cleaning up: #{filename}"
@@ -117,6 +117,7 @@ private ######################################################################
     else
       name_without_first = name.split("/")[1..-1].join("/")
       matchers = []
+      matchers << File.expand_path("./#{options[:template]}")
       matchers << File.join(options[:template], name_without_first) if options[:template]
       matchers << File.expand_path("~/.foreman/templates/#{name}")
       matchers << File.expand_path("../../../../data/export/#{name}", __FILE__)
